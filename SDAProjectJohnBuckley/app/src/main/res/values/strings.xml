@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">SDA Project John Buckley</string>
+    <string name="button_one">Invite Guests</string>
+    <string name="button_two">Guest List</string>
+    <string name="button_three">Camera</string>
+    <string name="button_four">Photographs</string>
+    <string name="button_five">Weather</string>
+    <string name="button_six">To Do List</string>
+    <string name="button_seven">Import Guests from Contacts</string>
+    <string name="button_eight">Enter in Guests</string>
+    <string name="enterguestname">Enter Guest Name</string>
+    <string name="enterguestemail">Enter Guest Email</string>
+    <string name="enterguestphone">Enter Guest Phone number</string>
+    <string name="enterguestbutton">Save</string>
+</resources>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.john.sdaprojectjohnbuckley.AddGuestsActivity">
+
+    <EditText
+        android:id="@+id/guestname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/enterguestname"
+        android:inputType="text">
+    </EditText>
+    <EditText
+    android:layout_below="@+id/guestname"
+    android:id="@+id/guestemail"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:hint="@string/enterguestemail"
+    android:inputType="text">
+    </EditText>
+    <EditText
+        android:layout_below="@+id/guestemail"
+        android:id="@+id/guestphone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/enterguestphone"
+        android:inputType="text">
+    </EditText>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/enterguestbutton"
+        android:id="@+id/button"
+        android:layout_below="@+id/guestphone"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="44dp" />
+
+
+</RelativeLayout>
