@@ -37,10 +37,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/enterguestbutton"
-        android:id="@+id/button"
+        android:id="@+id/savebutton"
         android:layout_below="@+id/guestphone"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="44dp" />
+        android:layout_marginTop="44dp"
+        android:onClick="guestSave"/>
 
 
 </RelativeLayout>

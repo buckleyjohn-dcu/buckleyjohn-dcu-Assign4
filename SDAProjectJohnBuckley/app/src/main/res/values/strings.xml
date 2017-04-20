@@ -12,4 +12,9 @@
     <string name="enterguestemail">Enter Guest Email</string>
     <string name="enterguestphone">Enter Guest Phone number</string>
     <string name="enterguestbutton">Save</string>
+    <string name="entertask">Task to be completed</string>
+    <string name="entertaskduedate">Task Due Date</string>
+    <string name="entertaskcompleteby">Task completed by</string>
+    <string name="tasksave">Save</string>
+    <string name="listtasks">Tasks List</string>
 </resources>
