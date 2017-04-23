@@ -41,7 +41,8 @@
         android:layout_below="@+id/guestphone"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="44dp"
-        android:onClick="guestSave"/>
+        android:onClick="saveGuestInfo"
+        />
 
 
 </RelativeLayout>

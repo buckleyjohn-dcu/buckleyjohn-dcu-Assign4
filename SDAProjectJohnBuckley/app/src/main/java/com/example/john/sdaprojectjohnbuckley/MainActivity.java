@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity
 {
     static final int REQUEST_IMAGE_CAPTURE = 1;
     String mCurrentPhotoPath;
-    private static final String TAG = "ViewGoogleDirveActivity";
+
     private static final int REQUEST_CODE_OPENER = 1;
     @Override
     protected void onCreate(Bundle savedInstanceState)

@@ -17,4 +17,7 @@
     <string name="entertaskcompleteby">Task completed by</string>
     <string name="tasksave">Save</string>
     <string name="listtasks">Tasks List</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

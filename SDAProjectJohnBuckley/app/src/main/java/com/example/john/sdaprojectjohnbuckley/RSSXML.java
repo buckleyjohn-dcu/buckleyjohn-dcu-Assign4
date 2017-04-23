@@ -13,7 +13,7 @@ import java.net.URL;
  * Created by John on 17/04/2017.
  */
 public class RSSXML {
-    private ImageView description;
+    private String description;
     String urlString = null;
     private XmlPullParserFactory xmlFactoryObject;
     public volatile boolean parsingComplete = true;
@@ -21,7 +21,7 @@ public class RSSXML {
     public RSSXML(String url){
         this.urlString = url;
     }
-    public ImageView getDescription(){
+    public String getDescription(){
         return description;
     }
     public void parseXMLAndStoreIt(XmlPullParser myParser) {

@@ -10,14 +10,14 @@ import android.widget.ImageView;
 
 public class RSSFeedActivity extends AppCompatActivity {
     Button b1;
-    ImageView description;
-    private String finalUrl="http://www.met.ie/widgets/3daysummary.asp";
+    EditText description;
+    private String finalUrl="http://http://www.rssweather.com/wx/ie/dublin/rss.php";
     private RSSXML obj;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rssfeed);
-        description = (ImageView) findViewById(R.id.imageButton);
+        description = (EditText) findViewById(R.id.weatherDetail);
         b1=(Button)findViewById(R.id.buttonWeather);
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -26,7 +26,7 @@ public class RSSFeedActivity extends AppCompatActivity {
                 obj.fetchXML();
 
                 while(obj.parsingComplete);
-
+                description.setText(obj.getDescription());
                 ;
             }
         });

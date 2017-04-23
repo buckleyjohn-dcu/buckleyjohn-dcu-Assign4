@@ -12,7 +12,7 @@ public class TaskListActivity extends AppCompatActivity {
     EditText taskdescript;
     EditText taskCompleteBy;
     EditText taskduedate;
-    SQLiteDatabase db;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,14 +25,14 @@ public class TaskListActivity extends AppCompatActivity {
     }
     public void save(View v)
     {
-        SQLHelper mTaskDbHelper = new SQLHelper(this);
-        SQLiteDatabase db = mTaskDbHelper.getWritableDatabase();
+        SQLHelper mTaskDbHelper = new SQLHelper(TaskListActivity.this);
+        SQLiteDatabase taskDB = mTaskDbHelper.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put(TaskSQLHelper.TASK_NAME, taskdescript.getText().toString());
-        values.put(TaskSQLHelper.TASKENTRY_NAME, taskCompleteBy.getText().toString());
-        values.put(TaskSQLHelper.TASK_DATE, taskduedate.getText().toString());
+        values.put(TaskContract.TaskFeedEntry.TASK_NAME, taskdescript.getText().toString());
+        values.put(TaskContract.TaskFeedEntry.TASKENTRY_NAME, taskCompleteBy.getText().toString());
+        values.put(TaskContract.TaskFeedEntry.TASK_DATE, taskduedate.getText().toString());
 
-        long newRowId = db.insert(TaskSQLHelper.TASKTABLE_NAME, null, values);
+        long newRowId = taskDB.insert(TaskContract.TaskFeedEntry.TASKTABLE_NAME, null, values);
         if (newRowId == -1) {
             // If the row ID is -1, then there was an error with insertion.
             Toast.makeText(this, "Error with saving task", Toast.LENGTH_SHORT).show();
