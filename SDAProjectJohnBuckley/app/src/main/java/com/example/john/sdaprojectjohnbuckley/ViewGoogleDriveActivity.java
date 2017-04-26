@@ -25,6 +25,12 @@ import com.google.android.gms.drive.DriveId;
 import com.google.android.gms.drive.OpenFileActivityBuilder;
 
 /**
+ * An activity to illustrate how to pick a file with the opener intent.
+ * Class contains code adapted from
+ * URL:https://https://github.com/googledrive/android-quickstart
+ * Retrieved on 10th of April 2017
+ * URL:https://github.com/googledrive/android-demos
+ * Retrieved on 15th of April 2017
  * Created by John on 20/04/2017.
  */
 public class ViewGoogleDriveActivity extends GoogleDriveAuthorisationActivity
@@ -34,6 +40,10 @@ public class ViewGoogleDriveActivity extends GoogleDriveAuthorisationActivity
     private static final int REQUEST_CODE_OPENER = 1;
 
     @Override
+    /**
+     * Code adapted from method onConnected() described at at https://github.com/googledrive/android-demos
+     */
+
     public void onConnected(Bundle connectionHint) {
         super.onConnected(connectionHint);
         IntentSender intentSender = Drive.DriveApi
@@ -49,6 +59,9 @@ public class ViewGoogleDriveActivity extends GoogleDriveAuthorisationActivity
     }
 
     @Override
+    /**
+     * Code adapted from method onConnected() described at at https://github.com/googledrive/android-demos
+     */
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         switch (requestCode) {
             case REQUEST_CODE_OPENER:

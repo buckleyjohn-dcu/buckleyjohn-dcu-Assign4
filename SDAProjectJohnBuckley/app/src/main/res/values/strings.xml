@@ -17,7 +17,11 @@
     <string name="entertaskcompleteby">Task completed by</string>
     <string name="tasksave">Save</string>
     <string name="listtasks">Tasks List</string>
-
+    <string name="addtheGuest">Add Guest</string>
+    <string name="edittheguest">Edit</string>
+    <string name="delete">Delete</string>
+    <string name="guestdelete">"GuestName Deletion:</string>
+    <string name="deletename">Enter the guest to be deleted</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

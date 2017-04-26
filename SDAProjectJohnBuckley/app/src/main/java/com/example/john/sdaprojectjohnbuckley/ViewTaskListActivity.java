@@ -1,3 +1,17 @@
+/**
+ * Copyright 2013 Google Inc. All Rights Reserved.
+ *
+ *  Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except
+ * in compliance with the License. You may obtain a copy of the License at
+ *
+ *  http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *  Unless required by applicable law or agreed to in writing, software distributed under the
+ * License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either
+ * express or implied. See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package com.example.john.sdaprojectjohnbuckley;
 
 import android.app.ListActivity;
@@ -18,9 +32,20 @@ import android.widget.TextView;
 import android.support.design.widget.FloatingActionButton;
 import android.widget.Toast;
 
-import java.util.ArrayList;
-import java.util.List;
-
+/**
+ * The Activity to view the Tasklist database
+ * Buttons to add database data
+ * Citation:
+ * Class contains code adapted from
+ * URL:https://github.com/udacity/ud845-Pets
+ * Retrieved on 11th of April 2017
+ * URL:https://developer.android.com/training/basics/data-storage/databases.html
+ * Retrieved on 11th of April 2017
+ * URL:https://github.com/aporter/coursera-android/tree/master/Examples/DataManagementSQL
+ * Retrieved on 8th of October 2016
+ * URL:https://developer.android.com/guide/topics/ui/declaring-layout.html
+ * Retrieved on 24th of April 2017
+ */
 
 public class ViewTaskListActivity extends ListActivity {
 
@@ -31,7 +56,11 @@ public class ViewTaskListActivity extends ListActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_task_list);
 
-        // Setup FAB to open EditorActivity
+        /**
+         * Floating Action Button to intialise AddGuestActivity
+         * Code adapted from Floating Action Button described at at https://github.com/udacity/ud845-Pets
+         * @param v The button that was clicked.
+         */
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -41,26 +70,38 @@ public class ViewTaskListActivity extends ListActivity {
                 startActivity(intent);
             }
         });
+        /**
+         * To access our database, we instantiate our subclass of SQLiteOpenHelper
+         * and pass the context, which is the current activity.
+         */
         mDbHelper = new TaskSQLHelper(this);
         insertTestTask();
     }
 
     @Override
+    /**
+     * On Start method
+     * Code adapted from method Onstart() described at at https://github.com/udacity/ud845-Pets
+     */
     protected void onStart() {
         super.onStart();
         displayDatabaseInfo();
     }
 
     /**
-     * Temporary helper method to display information in the onscreen TextView about the state of
-     * the pets database.
+     * use the query() method, passing it your selection criteria and desired columns
+     * The method combines elements of insert() and update(),
+     * except the column list defines the data you want to fetch, rather than the data to insert.
+     * The results of the query are returned to you in a Cursor object.
+     * Code adapted from method displayGuestDatabaseInfo() described at at https://github.com/udacity/ud845-Pets
+     * Code adapted from https://developer.android.com/training/basics/data-storage/databases.html
      */
     private void displayDatabaseInfo() {
         // Create and/or open a database to read from it
         SQLiteDatabase db = mDbHelper.getReadableDatabase();
 
-// Define a projection that specifies which columns from the database
-// you will actually use after this query.
+        // Define a projection that specifies which columns from the database
+        // you will actually use after this query.
         String[] projection = {
                 TaskContract.TaskFeedEntry._ID,
                 TaskContract.TaskFeedEntry.TASK_NAME,
@@ -92,8 +133,11 @@ public class ViewTaskListActivity extends ListActivity {
         } else {
             Log.e(TAG, "The Cursor failed to populate");
         }
-
-        SimpleCursorAdapter taskAdapter = new SimpleCursorAdapter(this, R.layout.guestlist_adapterview, taskCursor, projection, taskColumns, 0);
+        /**
+         * Code adapted from https://developer.android.com/guide/topics/ui/declaring-layout.html
+         * Code adapted from https://developer.android.com/reference/android/widget/SimpleCursorAdapter.html
+         */
+        SimpleCursorAdapter taskAdapter = new SimpleCursorAdapter(this, R.layout.tasklist_adapterview, taskCursor, projection, taskColumns, 0);
         ListView listView = getListView();
         listView.setAdapter(taskAdapter);
         if (taskAdapter.isEmpty()) {
@@ -126,6 +170,9 @@ public class ViewTaskListActivity extends ListActivity {
 
 
     }
+    /**
+     * Helper method to insert hardcoded guest data into the database. For test purposes only.
+     * Code adapted from method displayGuestDatabaseInfo() described at at https://github.com/udacity/ud845-Pets
      */
     private void insertTestTask()
     {
@@ -140,7 +187,7 @@ public class ViewTaskListActivity extends ListActivity {
         values.put(TaskContract.TaskFeedEntry.TASK_DATE, "31/1/16");
 
 
-        // Insert a new row for Jack Sparrow in the database, returning the ID of that new row.
+        // Insert a new row for Take over the World in the database, returning the ID of that new row.
         // The first argument for db.insert() is the guest table name.
         // The second argument provides the name of a column in which the framework
         // can insert NULL in the event that the ContentValues is empty (if
@@ -157,5 +204,5 @@ public class ViewTaskListActivity extends ListActivity {
             Toast.makeText(this, "Test Task saved with row id: " + newRowId, Toast.LENGTH_SHORT).show();
         }
     }
-    }
+}
 

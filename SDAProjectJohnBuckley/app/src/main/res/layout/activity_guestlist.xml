@@ -20,11 +20,27 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Add Guest"
+        android:text="@string/addtheGuest"
         android:id="@+id/addGuestbutton"
+        android:onClick="addGuest"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:onClick="addGuest"/>
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:text="@string/edittheguest"
+        android:id="@+id/editButton"
+        android:layout_alignParentBottom="true"
+        android:layout_toEndOf="@+id/addGuestbutton"
+        style="@style/DBButtonStyle"
+        />
+
+    <Button
+        style="@style/DBButtonStyle"
+        android:text="@string/delete"
+        android:id="@+id/deleteButton"
+        android:layout_alignParentBottom="true"
+        android:layout_toEndOf="@+id/editButton"
+        android:onClick="delete"/>
 
 
 </RelativeLayout>

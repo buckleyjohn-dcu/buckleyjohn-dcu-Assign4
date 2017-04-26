@@ -37,8 +37,9 @@
             android:value="@integer/google_play_services_version" />
 
         <activity android:name=".RSSFeedActivity" />
-        <activity android:name=".ViewTaskListActivity"></activity>
-        <activity android:name=".ViewGoogleDriveActivity"></activity>
+        <activity android:name=".ViewTaskListActivity" />
+        <activity android:name=".ViewGoogleDriveActivity" />
+        <activity android:name=".DeleteGuestActivity"></activity>
     </application>
 
 </manifest>
