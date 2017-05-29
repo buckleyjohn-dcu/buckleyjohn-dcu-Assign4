@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory
+        android:title="@string/preferencesTitle">
+
+    <EditTextPreference
+        android:key="name_preference"
+        android:title="@string/customerName_preference"
+        android:dialogMessage="@string/customerNamePrompt"
+        android:dialogTitle="@string/namedialog" />
+
+    <EditTextPreference
+        android:key="password_preference"
+        android:title="@string/password_preference"
+        android:dialogTitle="@string/passdialog"
+        android:dialogMessage="@string/passwordPrompt"
+        android:password="true"/>
+
+    <EditTextPreference
+        android:key="email_preference"
+        android:title="@string/email_preference"
+        android:dialogTitle="@string/emaildialog"
+        android:dialogMessage="@string/emailPrompt" />
+
+    <CheckBoxPreference
+        android:key="checkbox_preference"
+        android:title="@string/loyalty_member"
+         />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>
