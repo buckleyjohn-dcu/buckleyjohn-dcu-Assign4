@@ -15,6 +15,7 @@
         android:id="@+id/action_send"
         android:icon="@android:drawable/ic_menu_send"
         app:showAsAction="ifRoom"
+        android:onClick="sendNotify"
         android:title="@string/action_send">
     </item>
     <item
