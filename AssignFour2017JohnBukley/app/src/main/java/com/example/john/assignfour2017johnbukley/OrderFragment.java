@@ -197,11 +197,26 @@ public class OrderFragment extends Fragment implements android.widget.CompoundBu
         Toast.makeText(getActivity(), createOrderSummary(), Toast.LENGTH_LONG).show();
 
     }
-
     public void onPrepareOptionsMenu (Menu menu){
         menu.clear();
         getActivity().getMenuInflater().inflate(R.menu.actionbarmenu, menu);
+
         super.onPrepareOptionsMenu(menu);
+    }
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.action_share) {
+            submitOrder();
+        }
+        else {
+            Context context = getActivity();
+            CharSequence text = "Error with Share Button";
+            int duration = Toast.LENGTH_SHORT;
+            Toast toast = Toast.makeText(context, text, duration);
+            toast.show();
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
 

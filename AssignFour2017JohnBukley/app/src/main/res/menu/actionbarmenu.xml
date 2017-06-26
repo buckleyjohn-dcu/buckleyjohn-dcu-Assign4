@@ -26,10 +26,10 @@
     </item>
 
     <item
-        android:id="@+id/action_add"
+        android:id="@+id/action_event"
         android:icon="@android:drawable/ic_menu_add"
         app:showAsAction="ifRoom"
-        android:title="@string/action_add">
+        android:title="@string/action_event">
     </item>
 
     <item

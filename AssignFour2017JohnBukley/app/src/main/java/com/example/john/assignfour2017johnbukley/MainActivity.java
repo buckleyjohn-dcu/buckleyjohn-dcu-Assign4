@@ -90,17 +90,13 @@ public class MainActivity extends AppCompatActivity {
                 Log.i(TAG, "User chose the Send action from Action Bar");
                 notification();
                 return true;
-            case R.id.action_share:
-                Log.i(TAG, "User chose the Share action from Action Bar");
-                invalidateOptionsMenu();
-                return true;
             case R.id.action_search:
                 Log.i(TAG, "User chose the Search action, show a search bar UI");
                 return true;
-            case R.id.action_add:
-                Log.i(TAG, "User chose the Add action from Action Bar");
+            case R.id.action_event:
+                Log.i(TAG, "User chose the Event action from Action Bar");
+                calendarEvent();
                 return true;
-
             case R.id.action_feedback:
                 Log.i(TAG, "User chose the Feedback action from Action Bar");
                 return true;
@@ -184,5 +180,13 @@ public class MainActivity extends AppCompatActivity {
         // mId allows you to update the notification later on.
         mNotificationManager.notify(MY_NOTIFICATION_ID, mBuilder.build());
 
+    }
+    public void calendarEvent() {
+
+        Intent eventCalendarIntent = new Intent(Intent.ACTION_INSERT);
+        eventCalendarIntent.setData(CalendarContract.Events.CONTENT_URI);
+        eventCalendarIntent.putExtra(CalendarContract.Events.TITLE, eventTitle);
+        eventCalendarIntent.putExtra(CalendarContract.Events.EVENT_LOCATION, eventLocation);
+        startActivity(eventCalendarIntent);
     }
 }
