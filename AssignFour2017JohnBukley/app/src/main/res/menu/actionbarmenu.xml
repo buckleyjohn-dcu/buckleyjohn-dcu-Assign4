@@ -4,33 +4,34 @@
     tools:context="sda.oscail.edu.actiontabs.MainActivity">
 
 
-
     <item
+        android:id="@+id/action_send"
+        android:icon="@android:drawable/ic_menu_send"
+        app:showAsAction="ifRoom"
+        android:title="@string/action_send">
+    </item>
+        <item
+            android:id="@+id/action_share"
+            android:actionProviderClass="android.widget.ShareActionProvider"
+            android:icon="@android:drawable/ic_menu_share"
+            app:showAsAction="ifRoom"
+            android:title="@string/action_share">
+        </item>
+
+        <item
         android:id="@+id/action_search"
         android:icon="@android:drawable/ic_menu_search"
         app:showAsAction="ifRoom"
         android:title="@string/action_search">
     </item>
-    <item
-        android:id="@+id/action_send"
-        android:icon="@android:drawable/ic_menu_send"
-        app:showAsAction="ifRoom"
-        android:onClick="sendNotify"
-        android:title="@string/action_send">
-    </item>
+
     <item
         android:id="@+id/action_add"
         android:icon="@android:drawable/ic_menu_add"
         app:showAsAction="ifRoom"
         android:title="@string/action_add">
     </item>
-    <item
-        android:id="@+id/action_share"
-        android:actionProviderClass="android.widget.ShareActionProvider"
-        android:icon="@android:drawable/ic_menu_share"
-        app:showAsAction="ifRoom"
-        android:title="@string/action_share">
-    </item>
+
     <item
         android:id="@+id/action_feedback"
         android:icon="@android:drawable/ic_menu_help"

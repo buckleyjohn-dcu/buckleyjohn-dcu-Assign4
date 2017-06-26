@@ -6,6 +6,9 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -31,11 +34,13 @@ public class OrderFragment extends Fragment implements android.widget.CompoundBu
     String mSummary ="";
     int mQuantity = 1;
     double mPrice = 0.0;
+    Menu orderMenu;
 
     private static final String TAG = "OrderFragment";
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState)
     {
+        setHasOptionsMenu(true);
         Log.i(TAG, "The Orderfragement view has been populated");
         // Inflate the layout for this fragment
         View orderFragmentView = inflater.inflate(R.layout.orderfragment, container, false);
@@ -190,6 +195,13 @@ public class OrderFragment extends Fragment implements android.widget.CompoundBu
     public void Summary () {
 
         Toast.makeText(getActivity(), createOrderSummary(), Toast.LENGTH_LONG).show();
+
+    }
+
+    public void onPrepareOptionsMenu (Menu menu){
+        menu.clear();
+        getActivity().getMenuInflater().inflate(R.menu.actionbarmenu, menu);
+        super.onPrepareOptionsMenu(menu);
     }
 
 
