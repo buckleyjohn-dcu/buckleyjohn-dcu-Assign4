@@ -4,6 +4,7 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,17 +15,16 @@ import android.widget.Toast;
 
 /**
  * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
-
- * create an instance of this fragment.
+ * This fragment displays the same content and functionality as was developed in Assignment 3 i.e. Pizza Menu List Activity
  */
 public class MenuFragement extends Fragment {
-
+    private static final String TAG = "MenuFragment";
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState)
     {
         // Inflate the layout for this fragment
         View menuFragmentView = inflater.inflate(R.layout.menufragement, container, false);
+        Log.i(TAG,"Menu Fragment has been inflated");
         final ArrayList<Pizza> pizzas = new ArrayList<Pizza>();
         pizzas.add(new Pizza(R.drawable.bbq, R.string.pizza1,R.string.pizza1Desc));
         pizzas.add(new Pizza(R.drawable.hawaiian, R.string.pizza3,R.string.pizza3Desc));

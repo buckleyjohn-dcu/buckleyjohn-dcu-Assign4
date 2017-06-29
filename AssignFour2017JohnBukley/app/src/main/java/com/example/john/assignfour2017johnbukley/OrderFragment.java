@@ -204,8 +204,8 @@ public class OrderFragment extends Fragment implements android.widget.CompoundBu
         super.onPrepareOptionsMenu(menu);
     }
     public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-        if (id == R.id.action_share) {
+        int menuId = item.getItemId();
+        if (menuId == R.id.action_share) {
             submitOrder();
         }
         else {

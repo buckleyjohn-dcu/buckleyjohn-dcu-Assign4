@@ -23,6 +23,10 @@ import com.google.android.gms.common.api.GoogleApiClient;
 
 import static android.content.Intent.FLAG_ACTIVITY_NEW_TASK;
 
+/**
+ * Main screen when application is launched
+ */
+
 public class MainActivity extends AppCompatActivity {
     private static final int MY_NOTIFICATION_ID = 1;
     String notificationTitle = "Restautant Notification!";
@@ -44,16 +48,12 @@ public class MainActivity extends AppCompatActivity {
     private GoogleApiClient client;
     MenuItem shareOption;
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-
-
-
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
-
         TabLayout myTabLayout = (TabLayout) findViewById(R.id.my_tablayout);
         myTabLayout.addTab(myTabLayout.newTab());
         myTabLayout.addTab(myTabLayout.newTab());
@@ -73,6 +73,11 @@ public class MainActivity extends AppCompatActivity {
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
     }
 
+    /**
+     *
+     * @param menu The options menu in which menu options are placed
+     * @return You must return true for the menu to be displayed; if you return false it will not be shown
+     */
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.actionbarmenu, menu);
@@ -81,6 +86,11 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
+    /**
+     *
+     * @param item The menu item that was selected
+     * @return boolean Return false to allow normal menu processing to proceed, true to consume it here.
+     */
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_settings:
@@ -153,9 +163,12 @@ public class MainActivity extends AppCompatActivity {
         AppIndex.AppIndexApi.end(client, viewAction);
         client.disconnect();
     }
+
+    /**
+     * A notification is send to the Android System. The Notification has the populated values as specified above
+     */
     public void notification()
     {
-
         Intent calendarIntent = new Intent(Intent.ACTION_INSERT);
         calendarIntent.setData(CalendarContract.Events.CONTENT_URI);
         calendarIntent.putExtra(CalendarContract.Events.TITLE, eventTitle);
@@ -174,15 +187,18 @@ public class MainActivity extends AppCompatActivity {
                         .setAutoCancel(true)
                         .setSound(soundURI);
 
-
         NotificationManager mNotificationManager =
                 (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
         // mId allows you to update the notification later on.
         mNotificationManager.notify(MY_NOTIFICATION_ID, mBuilder.build());
 
     }
-    public void calendarEvent() {
 
+    /**
+     * The Calendar event has the same populated values as specified above.
+     */
+    public void calendarEvent()
+    {
         Intent eventCalendarIntent = new Intent(Intent.ACTION_INSERT);
         eventCalendarIntent.setData(CalendarContract.Events.CONTENT_URI);
         eventCalendarIntent.putExtra(CalendarContract.Events.TITLE, eventTitle);
